@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Kalkulator Mas YUS</title>
+ <style type="text/css">
+  .tombol{
+   background-color: deepskyblue;
+  }
+  input {
+  	text-align: right;
+  }
+  .tabel{
+   background-color: yellow;
+   margin: 10px;
+   padding: 10px;
+  }
+  .tabel2{
+   background-color: orange;
+   margin: 10px;
+   padding: 10px;
+  }
+  .tabel3{
+   margin: 10px;
+   padding: 10px;
+  }
+ </style>
+</head>
+<body>
+ <form name="calculator">
+
+  <table class="tabel">
+   <caption>Kalkulator Mas YUS</caption>
+   <tr>
+    <td>Dis Fina</td><td>:</td><td><input type="text" name="angka1" value="0"></td>
+   </tr>
+   <tr>
+    <td><input class="tombol" type="button" onclick="kali()" value="  PPN  "></td><td>:</td><td><input type="text" name="hasil" readonly disabled></td>
+   </tr>
+  </table>
+
+  <table class="tabel2">
+   <tr>
+    <td>CGP01</td><td>:</td><td><input type="text" name="cgp01" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP02</td><td>:</td><td><input type="text" name="cgp02" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP03</td><td>:</td><td><input type="text" name="cgp03" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP04</td><td>:</td><td><input type="text" name="cgp04" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP05</td><td>:</td><td><input type="text" name="cgp05" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP06</td><td>:</td><td><input type="text" name="cgp06" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP07</td><td>:</td><td><input type="text" name="cgp07" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP08</td><td>:</td><td><input type="text" name="cgp08" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP09</td><td>:</td><td><input type="text" name="cgp09" value="0"></td>
+   </tr>
+   <tr>
+    <td>CGP10</td><td>:</td><td><input type="text" name="cgp10" value="0"></td>
+   </tr>
+   <tr>
+    <td><input class="tombol" type="button" onclick="tambah()" value="  SUM  "></td><td>:</td><td><input type="text" name="hasil2" readonly disabled></td>
+   </tr>
+  </table>
+
+  <table class="tabel3">
+   <tr><td><b>a = SUMCGP</b></td><td>:</td><td><span id="demo"></span></td></tr>
+   <tr><td><b>b = Dis PPN</b></td><td>:</td><td><span id="demo2"></span></td></tr>
+   <tr><td><b>c = a - b</b></td><td>:</td><td><span id="demo3"></span></td></tr>
+   <tr><td><b>d = c/a-1x100</b></td><td>:</td><td><span id="demo4"></span></td></tr>
+   <tr><td></td><td></td><td><span id="demo5"></span></td></tr>
+   <tr><td><h2><b>Disc 4</b></h2></td><td>:</td><td><span id="demo6"></span></td></tr>
+  </table>
+ </form>
+F5/Refresh untuk reset
+</body>
+</html>
+
+<script type="text/javascript">
+function kali(){
+ var disfina=parseFloat(document.calculator.angka1.value);
+ var ppn=1.1;
+ var hasil=disfina*ppn;
+ document.calculator.hasil.value=hasil;
+ document.getElementById("demo2").innerHTML = "<b>"+hasil+"</b>"
+}
+function tambah(){
+ var cgp1=parseFloat(document.calculator.cgp01.value);
+ var cgp2=parseFloat(document.calculator.cgp02.value);
+ var cgp3=parseFloat(document.calculator.cgp03.value);
+ var cgp4=parseFloat(document.calculator.cgp04.value);
+ var cgp5=parseFloat(document.calculator.cgp05.value);
+ var cgp6=parseFloat(document.calculator.cgp06.value);
+ var cgp7=parseFloat(document.calculator.cgp07.value);
+ var cgp8=parseFloat(document.calculator.cgp08.value);
+ var cgp9=parseFloat(document.calculator.cgp09.value);
+ var cgp10=parseFloat(document.calculator.cgp10.value);
+ var hasil2= cgp1+cgp2+cgp3+cgp4+cgp5+cgp6+cgp7+cgp8+cgp9+cgp10;
+ document.calculator.hasil2.value=hasil2;
+ document.getElementById("demo").innerHTML = "<b>"+hasil2+"</b>"
+ 
+ var h= parseFloat(document.calculator.hasil.value);
+ var hasil3= hasil2-h
+ document.getElementById("demo3").innerHTML = "<b>"+hasil3+"</b>"
+
+ var d1= hasil3/hasil2
+ var d2=d1-1
+ var d3=d2*100
+ document.getElementById("demo4").innerHTML = "<b>"+'( '+hasil3+' / '+hasil2+' )'+" - 1 x 100"+"</b>"
+ document.getElementById("demo5").innerHTML = "<b>"+'( '+d1+' )'+" - 1 x 100"+"</b>"
+ document.getElementById("demo6").innerHTML = "<b>"+d3+"</b>"
+}
+
+</script>
